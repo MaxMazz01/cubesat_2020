@@ -1,6 +1,6 @@
 To create the bluetooth connection for the first time, follow these steps.
 
-Before we start, you should figure out what the bluetooth address of both devices are. This will be helpful. On the Pi, you can do this by running "hciconfig -a".
+Before we start, you should figure out what the bluetooth address of both devices are. This will be helpful later on. On the Pi, you can do this by running "hciconfig -a".
 
 Make sure your computer is "discoverable" via bluetooth. This usually just involves opening the bluetooth section of your settings. Look it up for your particular OS and device.
 
