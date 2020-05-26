@@ -1,0 +1,57 @@
+To send serial data via the Bluetooth connection, we will use a protocol called rfcomm. This allows us to create a virtual serial port over the Bluetooth connection. The instructions here assume you have already established a bluetooth conenction with the Raspberry Pi.
+
+
+
+
+
+
+
+
+Setup:
+
+On the Raspberry Pi, you will need to add the following lines to the file: /etc/systemd/system/dbus-org.bluez.service
+
+ExecStart=/usr/lib/bluetooth/bluetoothd -C
+ExecStartPost=/usr/bin/sdptool add SP
+
+Otherwise you may run into an issue where no serial data is received.
+
+
+
+
+
+Before doing the rest of the steps, the Pi should be connected to your computer via Bluetooth.
+
+Now, on the Raspberry Pi:
+
+Enter the following command into the terminal:
+
+sudo rfcomm watch 0
+
+This will make the Pi wait for an incoming connection. When a connection is made, the virtual serial port will be created at /dev/rfcomm0. This can be changed by replacing "0" with another number (e.g. using "5" instead will create the serial connection at /dev/rfcomm5). When the connection closes, the Pi will start looking for a connection again. This way you can disconnect and reconnect without doing anything from the Pi.
+
+
+
+
+
+
+
+
+The steps to connect from your computer will depend on your OS.
+
+On Linux:
+
+Enter the following command into the terminal:
+
+sudo rfcomm connect 0 [bdaddress]
+
+where [bdaddress] is the pi's address.
+
+As with on the pi, the connection will now be made at /dev/rfcomm0.
+
+Instructions for Windows 10 and MacOS will be added later.
+
+
+
+
+Once this connection is established, you can now read/write to the port that you set up as you would any other serial connection.

@@ -1,0 +1,26 @@
+To create the bluetooth connection for the first time, follow these steps.
+
+Before we start, you should figure out what the bluetooth address of both devices are. This will be helpful. On the Pi, you can do this by running "hciconfig -a".
+
+Make sure your computer is "discoverable" via bluetooth. This usually just involves opening the bluetooth section of your settings. Look it up for your particular OS and device.
+
+Using the command line on the Raspberry Pi, do the following:
+
+Type "bluetoothctl"
+A prompt that says "[bluetooth]#" should appear.
+
+Into this prompt, enter these commands:
+discoverable on
+pairable on
+agent on
+default-agent
+
+After this, return to the bluetooth settings on your computer. You should see the Rapspberry Pi in the lsit of available devices. Connect to it.
+
+You may be prompted to enter a pin. Pick a pin of your choice and enter it on both devices.
+
+Finally, on the bluetooth prompt on the Pi, type:
+trust [bluetooth address]
+where [bluetooth address] is the address of the computer.
+
+This will allow you to connect from the computer in the future without having to enter anything into the Raspberry Pi prompt.
