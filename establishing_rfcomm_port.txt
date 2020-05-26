@@ -39,6 +39,10 @@ This will make the Pi wait for an incoming connection. When a connection is made
 
 The steps to connect from your computer will depend on your OS.
 
+On Windows:
+
+Open control panel. From there, select "devices and printers." Find the Raspberry Pi and right click it, then select "properties." In the properties window, find the "Serial Port Protocol" entry under "services," and note the port it is using (it will look something like "COM3"). Make note of this port. This is the port you will use for reading/writing information. You do not need to enter any commands to initiate the connection under Windows. The computer will automatically open the connection when you access the serial port from your program.
+
 On Linux:
 
 Enter the following command into the terminal:
@@ -47,9 +51,9 @@ sudo rfcomm connect 0 [bdaddress]
 
 where [bdaddress] is the pi's address.
 
-As with on the pi, the connection will now be made at /dev/rfcomm0.
+As with on the pi, the connection will now be made at /dev/rfcomm0. This is the port you will use for reading/writing information. You will need to repeat this process everytime you wish to connect the serial port.
 
-Instructions for Windows 10 and MacOS will be added later.
+Instructions for MacOS will be added later.
 
 
 
