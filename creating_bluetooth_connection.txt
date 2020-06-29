@@ -19,8 +19,12 @@ After this, return to the bluetooth settings on your computer. You should see th
 
 You may be prompted to enter a pin. Pick a pin of your choice and enter it on both devices.
 
+Disconnect the computer (do this by just turning off the computer's bluetooth).
+
 Finally, on the bluetooth prompt on the Pi, type:
 trust [bluetooth address]
 where [bluetooth address] is the address of the computer.
 
 This will allow you to connect from the computer in the future without having to enter anything into the Raspberry Pi prompt.
+
+You can now reconnect, and should be able to do so from the computer without any input to the Pi.
